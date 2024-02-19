@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height:5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e6e6e6;
+
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b5a1e0; 
+  border-radius: 10px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a281e2; 
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -16,6 +40,60 @@
   }
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+} 
+
+@keyframes shaking{
+  0% {
+    transform: translateX(-15%);
+    background-color: red
+  }
+  14% {
+    transform: translateX(15%);
+  }
+  28% {
+    transform: translateX(-10%);
+  }
+  42% {
+    transform: translateX(10%);
+  }
+  56% {
+    transform: translateX(-5%);
+  }
+  70% {
+    transform: translateX(5%);
+  }
+  84% {
+    transform: translateX(0%);
+  }
+}
+@keyframes noGravity{
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(4%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+.floating {
+  animation: noGravity 2s ease-in-out infinite;
+};
+.shake {
+  animation: shaking 0.5s ease-in-out;
+};
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,4 +102,5 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+};
+
