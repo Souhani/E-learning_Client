@@ -91,14 +91,14 @@ const EditHero = (props: Props) => {
         </div>
 
         <div className='flex-1 text-center font-Poppins'>
-                <textarea cols={20}  
+                <textarea cols={screenWdith >= 640 ? 20 : 15}  
                           rows={3} 
                           maxLength={100} 
                           className='800px:text-[2.5rem] block font-[700] my-2 border-0 bg-[unset]' 
                           value={title}
                           onChange={(e) => handleTitleChange(e)}
                           ></textarea>
-                <textarea cols={screenWdith >= 640 ? 60 : 20} 
+                <textarea cols={screenWdith >= 640 ? 60 : 15} 
                           rows={3} 
                           maxLength={200} 
                           className='800px:text-[1rem] block border-0 bg-[unset] mt-1 sm:mt-0' 

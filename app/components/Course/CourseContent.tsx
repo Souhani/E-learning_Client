@@ -127,7 +127,7 @@ const CourseContent = ({
             title={content[activeVideo]?.title}
             videoUrl={content[activeVideo]?.videoUrl}
           />
-          <div className="w-full flex items-center justify-between my-3">
+          <div className="w-full flex gap-4 items-center justify-between my-3">
             <button
               className={`${styles.submit} !w-max flex items-center ${
                 activeVideo === 0 && "!cursor-no-drop opacity-[0.8]"
