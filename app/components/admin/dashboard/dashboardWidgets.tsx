@@ -11,17 +11,17 @@ type Props = {}
 
 const DashboardWidgets = (props: Props) => {
   const[ monthOrders, setMonthOrders] = useState<any>("");
-  const[ monthOrdersProgress, setMonthOrdersProgress] = useState<any>("");
+  const[ monthOrdersProgress, setMonthOrdersProgress] = useState<number>(0);
   const { data:OrdersData } = useGetOrdersAnalyticsQuery(undefined);
   const[ monthUsers, setMonthUsers] = useState<any>("");
-  const[ monthUsersProgress, setMonthUsersProgress] = useState<any>("");
+  const[ monthUsersProgress, setMonthUsersProgress] = useState<number>(0);
   const { data:UsersData } = useGetUsersAnalyticsQuery(undefined);
   useEffect( ()=> {
     if(OrdersData) {
-      const thisMonthOrders = OrdersData.data?.last12Months[OrdersData.data?.last12Months.length-1].count;
-      const lastMonthOrders = OrdersData.data?.last12Months[OrdersData.data?.last12Months.length-2].count;
+      const thisMonthOrders = OrdersData.data?.last12Months[OrdersData.data?.last12Months.length-1].count 
+      const lastMonthOrders = OrdersData.data?.last12Months[OrdersData.data?.last12Months.length-2].count 
       setMonthOrders(thisMonthOrders);
-      setMonthOrdersProgress(lastMonthOrders !==0 ? ((100*thisMonthOrders)/lastMonthOrders)-100 : 100);
+      setMonthOrdersProgress(lastMonthOrders !==0 ? (((100*thisMonthOrders)/lastMonthOrders)-100) : 100);
     }
     if(UsersData) {
       const thisMonthUsers = UsersData.data?.last12Months[UsersData.data?.last12Months.length-1].count;
@@ -53,7 +53,7 @@ const DashboardWidgets = (props: Props) => {
                                 thickness={5}/>
                         </div>
                         <p className='mx-auto'>
-                            {monthOrdersProgress>0? "+"+monthOrdersProgress?.toFixed(0)+"%": monthOrdersProgress?.toFixed(0)+"%"}
+                            {monthOrdersProgress>0? "+"+monthOrdersProgress.toFixed(0)+"%": monthOrdersProgress.toFixed(0)+"%"}
                         </p>
                 </div>
           </div>
@@ -77,7 +77,7 @@ const DashboardWidgets = (props: Props) => {
                                 thickness={5}/>
                         </div>
                         <p className='mx-auto'>
-                            {monthUsersProgress>0? "+"+monthUsersProgress?.toFixed(0)+"%": monthUsersProgress?.toFixed(0)+"%"}
+                            {monthUsersProgress>0? "+"+monthUsersProgress.toFixed(0)+"%": monthUsersProgress.toFixed(0)+"%"}
                         </p>
                 </div>
           </div>
