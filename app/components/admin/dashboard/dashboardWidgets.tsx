@@ -53,7 +53,7 @@ const DashboardWidgets = (props: Props) => {
                                 thickness={5}/>
                         </div>
                         <p className='mx-auto'>
-                            {monthOrdersProgress>0? "+"+monthOrdersProgress.toFixed(0)+"%": monthOrdersProgress.toFixed(0)+"%"}
+                            {monthOrdersProgress>0? "+"+monthOrdersProgress?.toFixed(0)+"%": monthOrdersProgress?.toFixed(0)+"%"}
                         </p>
                 </div>
           </div>
@@ -77,7 +77,7 @@ const DashboardWidgets = (props: Props) => {
                                 thickness={5}/>
                         </div>
                         <p className='mx-auto'>
-                            {monthUsersProgress>0? "+"+monthUsersProgress.toFixed(0)+"%": monthUsersProgress.toFixed(0)+"%"}
+                            {monthUsersProgress>0? "+"+monthUsersProgress?.toFixed(0)+"%": monthUsersProgress?.toFixed(0)+"%"}
                         </p>
                 </div>
           </div>
