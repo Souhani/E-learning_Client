@@ -21,13 +21,13 @@ const DashboardWidgets = (props: Props) => {
       const thisMonthOrders = OrdersData.data?.last12Months[OrdersData.data?.last12Months.length-1].count;
       const lastMonthOrders = OrdersData.data?.last12Months[OrdersData.data?.last12Months.length-2].count;
       setMonthOrders(thisMonthOrders);
-      setMonthOrdersProgress(lastMonthOrders !==0 ? (((100*thisMonthOrders)/lastMonthOrders)-100).toFixed(0) : 100);
+      setMonthOrdersProgress(lastMonthOrders !==0 ? ((100*thisMonthOrders)/lastMonthOrders)-100 : 100);
     }
     if(UsersData) {
       const thisMonthUsers = UsersData.data?.last12Months[UsersData.data?.last12Months.length-1].count;
       const lastMonthUsers = UsersData.data?.last12Months[UsersData.data?.last12Months.length-2].count;
       setMonthUsers(thisMonthUsers);
-      setMonthUsersProgress(lastMonthUsers !==0 ? (((100*thisMonthUsers)/lastMonthUsers)-100).toFixed(0) : 100);
+      setMonthUsersProgress(lastMonthUsers !==0 ? ((100*thisMonthUsers)/lastMonthUsers)-100 : 100);
     }
   },[OrdersData, UsersData]);
     const salesProgress = 80;
@@ -53,7 +53,7 @@ const DashboardWidgets = (props: Props) => {
                                 thickness={5}/>
                         </div>
                         <p className='mx-auto'>
-                            {monthOrdersProgress>0? "+"+monthOrdersProgress.toFixed(0)+"%": monthOrdersProgress+"%"}
+                            {monthOrdersProgress>0? "+"+monthOrdersProgress.toFixed(0)+"%": monthOrdersProgress.toFixed(0)+"%"}
                         </p>
                 </div>
           </div>
@@ -77,7 +77,7 @@ const DashboardWidgets = (props: Props) => {
                                 thickness={5}/>
                         </div>
                         <p className='mx-auto'>
-                            {monthUsersProgress>0? "+"+monthUsersProgress.toFixed(0)+"%": monthUsersProgress+"%"}
+                            {monthUsersProgress>0? "+"+monthUsersProgress.toFixed(0)+"%": monthUsersProgress.toFixed(0)+"%"}
                         </p>
                 </div>
           </div>
