@@ -16,6 +16,7 @@ import { useLogoutQuery } from "@/redux/features/auth/authApi";
 import { IoAnalyticsOutline, IoLogOutOutline } from "react-icons/io5";
 import { PiUsers } from "react-icons/pi";
 import { SlHome } from "react-icons/sl";
+import { MdOutlineQuiz } from "react-icons/md";
 import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import { MdOutlineBallot, MdOutlineCreateNewFolder } from "react-icons/md";
 import { RiBarChart2Line, RiImageEditLine } from "react-icons/ri";
@@ -23,6 +24,7 @@ import { BsQuestionCircle } from "react-icons/bs";
 import { BiCategoryAlt } from "react-icons/bi";
 import { GrUserAdmin } from "react-icons/gr";
 import { DefaultProfilePic } from "@/app/utils/defaultProfilePic";
+import { FaRegListAlt } from "react-icons/fa";
 
 
 type Props = {
@@ -219,6 +221,20 @@ const AdminSidebar:FC<PropsSidebar> = ({selected, setSelected, isCollapsed, setI
               title="Live courses"
               to="/admin/courses"
               icon={<MdOutlineBallot size={25} />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Create quiz"
+              to="/admin/create-quiz"
+              icon={<MdOutlineQuiz size={25} />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Quizzes"
+              to="/admin/quizzes"
+              icon={<FaRegListAlt size={25} />}
               selected={selected}
               setSelected={setSelected}
             />

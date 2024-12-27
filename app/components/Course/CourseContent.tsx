@@ -21,6 +21,7 @@ import CourseQuestions from "./CourseQuestions";
 import CourseReviews from "./CourseReviews"
 import socketID from "socket.io-client";
 import { DefaultProfilePic } from "@/app/utils/defaultProfilePic";
+import CourseQuizzes from "./CourseQuizzes";
 
 const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_SERVER_URI || "";
 const socketId = socketID(ENDPOINT, { transports: ["websocket"]});
@@ -161,7 +162,7 @@ const CourseContent = ({
           </h1>
           <br />
           <div className="w-full p-4 flex items-center justify-between bg-slate-500 bg-opacity-20 backdrop-blur shadow-[bg-slate-700] rounded shadow-inner">
-            {["Overview", "Resources", "Q&A", "Reviews"].map(
+            {["Quiz", "Overview", "Resources", "Q&A", "Reviews"].map(
               (text: string, index: number) => (
                 <h5
                   className={`800px:text-[20px] cursor-pointer ${
@@ -176,12 +177,18 @@ const CourseContent = ({
             )}
           </div>
           <br />
+       
           {activeBar === 0 && (
+            <p className="text-[18px] whitespace-pre-line mb-3">
+              <CourseQuizzes courseId={id} />
+            </p>
+          )}
+             {activeBar === 1 && (
             <p className="text-[18px] whitespace-pre-line mb-3">
               {content[activeVideo]?.description}
             </p>
           )}
-          {activeBar === 1 && (
+          {activeBar === 2 && (
             <div>
               {content[activeVideo]?.links.map((link: any, index: number) => (
                 <div key={index} className="mb-5">
@@ -198,7 +205,7 @@ const CourseContent = ({
               ))}
             </div>
           )}
-          {activeBar === 2 && (
+          {activeBar === 3 && (
             <div>
               <div className="flex w-full">
               <div className='min-w-[50px] h-[50px] text-[20px]'>
@@ -248,7 +255,7 @@ const CourseContent = ({
               </div>
             </div>
           )}
-          {activeBar === 3 && (
+          {activeBar === 4 && (
             <div>
               {!isReviewed && user.role !== "Admin" && (
                 <div>
