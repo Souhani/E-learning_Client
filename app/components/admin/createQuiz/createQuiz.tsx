@@ -1,5 +1,5 @@
 import { styles } from "@/app/styles/style";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import { Loader } from "../../Loader/LoadPage";
 import { MdAddCircle } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
