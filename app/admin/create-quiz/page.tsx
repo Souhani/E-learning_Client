@@ -10,6 +10,7 @@ import { useCreateQuizMutation } from "@/redux/features/quiz/quizApi";
 import toast from "react-hot-toast";
 import { redirect } from 'next/navigation';
 import { isThereEmptyField } from "@/app/utils/checkEmptyFields";
+import { quizDataTemplate } from "@/app/utils/quizDataTemp";
 
 export interface IOption {
   _id?: string;
@@ -30,26 +31,7 @@ export interface IQuiz {
   course_id: string;
   quiz: IQuestion[];
 }
-export const quizDataTemplate = {
-  title: "",
-  course_id: "",
-  quiz: [
-    {
-      question: "",
-      time: 30,
-      options: [
-        {
-          option: "",
-          is_correct: false,
-        },
-        {
-          option: "",
-          is_correct: false,
-        },
-      ],
-    },
-  ],
-}
+
 type Props = {};
 
 const Page = (props: Props) => {
