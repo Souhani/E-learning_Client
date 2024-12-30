@@ -24,7 +24,7 @@ import { IQuizResults } from "../components/Course/CourseQuizzes";
         // Check if the user's answers match the correct options
         const isCorrect = 
           correctOptionIds?.length === userResult.options_ids.length &&
-          correctOptionIds?.every((id) => userResult.options_ids.includes(id));
+          correctOptionIds?.every((id) => userResult.options_ids.includes(id || ''));
         // If the answer is correct, add the question's points to the score
         if (isCorrect) {
           score =score +1;
