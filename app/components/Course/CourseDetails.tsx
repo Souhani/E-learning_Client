@@ -31,21 +31,24 @@ const CourseDetails:FC<Props> = ({ course, stripePromise, clientSecret, courseRe
 
     const handleOrder = () => {
       if(user._id) {
-         setOpen(true);
+         setOpen(false);
       } else {
          setOpenLogin(true);
-      }
-      window.location.reload();
+      };
     }
-    useEffect(() => {
-       if(!initialRender) {
-         if(user._id && !isPurchased) {
-            setOpen(true);
-          }
-       } else {
-         setInitialRender(false)
-       }
-    }, [openLogin, user])
+   //  useEffect(() => {
+   //     if(!initialRender) {
+   //       if(user._id && !isPurchased) {
+   //          setOpen(false);
+   //          window.location.reload();
+   //        }
+   //     } else {
+   //       setInitialRender(false)
+   //     }
+   //  }, [openLogin, user]);
+
+
+    
   return (
     <div>
       <div className='w-[90%] 800px:[90%] m-auto py-5'>
@@ -162,7 +165,7 @@ const CourseDetails:FC<Props> = ({ course, stripePromise, clientSecret, courseRe
                     </div>
                     <div className='flex items-center'>
                       {
-                        ((isPurchased || user?.role === "Admin") && !openLogin)? (
+                        ((isPurchased || user?.role === "Admin") && user._id)? (
                           <Link href={`/course-access/${course?._id}`}
                           className={`${styles?.submit} !w-max !my-3 !font-Poppins !cursor-pointer`}>
                                     Enter to Course
