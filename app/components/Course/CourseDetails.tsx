@@ -169,7 +169,7 @@ const CourseDetails:FC<Props> = ({ course, stripePromise, clientSecret, courseRe
                         ) : (
                            <div   onClick={handleOrder}
                                  className={`${styles.submit} !w-max !my-3 !font-Poppins !cursor-pointer`}>
-                              Buy Now {course?.price}$
+                              Log in{course?.price}$
                            </div>
                         )
                       }
