@@ -161,7 +161,7 @@ const CourseDetails:FC<Props> = ({ course, stripePromise, clientSecret, courseRe
                     </div>
                     <div className='flex items-center'>
                       {
-                        (isPurchased || user?.role === "Admin")? (
+                        ((isPurchased || user?.role === "Admin") && openLogin)? (
                           <Link href={`/course-access/${course?._id}`}
                           className={`${styles?.submit} !w-max !my-3 !font-Poppins !cursor-pointer`}>
                                     Enter to Course
