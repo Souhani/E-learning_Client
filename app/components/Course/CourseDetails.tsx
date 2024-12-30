@@ -25,7 +25,10 @@ const CourseDetails:FC<Props> = ({ course, stripePromise, clientSecret, courseRe
     const [open, setOpen] = useState(false);
     const [initialRender, setInitialRender] = useState(true);
     const discountPercentage = ((course?.estimatedPrice - course?.price) / course?.estimatedPrice * 100).toFixed(0);
-    const isPurchased = user && user?.courses?.find((item:any) => item._id === course._id);
+    //here we mute this for demo
+   //  const isPurchased = user && user?.courses?.find((item:any) => item._id === course._id);
+    const isPurchased = true;
+
     const handleOrder = () => {
       if(user._id) {
          setOpen(true);

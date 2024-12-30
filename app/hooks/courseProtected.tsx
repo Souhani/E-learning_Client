@@ -10,7 +10,9 @@ type Props = {
 const CourseProtected = (props: Props) => {
     const id = props.id;
     const { user } = useSelector((state:any) => state.auth);
-    const isPurchased = user && user?.courses?.find((item:any) => item._id === id);
+    // CHANGE IS PURCHASED FOR DEMO
+        const isPurchased = true;
+    // const isPurchased = user && user?.courses?.find((item:any) => item._id === id);
     if(isPurchased || user.role === "Admin") {
         return ( <> { props.children } </> );
     } else {
