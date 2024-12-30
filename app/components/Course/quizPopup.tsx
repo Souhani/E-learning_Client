@@ -40,7 +40,7 @@ export const QuizPopup: FC<QuizPopupProps> = ({ quizData, handleSubmitQuiz }) =>
 
   // Timer Effect for Quiz
   useEffect(() => {
-    if (!quizStarted || timeLeft <= 0) {
+    if (!quizStarted && timeLeft <= 0) {
       return;
     }
 
