@@ -35,6 +35,7 @@ const CourseDetails:FC<Props> = ({ course, stripePromise, clientSecret, courseRe
       } else {
          setOpenLogin(true);
       }
+      window.location.reload();
     }
     useEffect(() => {
        if(!initialRender) {
